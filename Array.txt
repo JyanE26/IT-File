@@ -1,1 +1,42 @@
+Algorithm SortArray(array):
+    
+    // Input the array containing stock items that need to be sorted.
+    Step 1: Input array containing stock items.
+    
+    // Loop through the array for each item.
+    Step 2: For i = 0 to length(array) - 1:
+        
+        // Compare adjacent items and swap if necessary.
+        Step 2.1: For j = 0 to length(array) - 2 - i:
+            
+            // If the current item is greater than the next, swap them.
+            Step 2.1.1: If array[j].brand > array[j+1].brand:
+                Swap array[j] and array[j+1]
+    
+    // Display a message that the array is now sorted by brand.
+    Step 3: Display "Array sorted by brand."
+    
+    // End the algorithm.
+    Step 4: End
 
+
+Algorithm InsertIntoArray(array, newStock):
+    
+    // Input the details of the new stock item you want to add.
+    Step 1: Input newStock details.
+    
+    // Check if the array has space for new items.
+    Step 2: If array is not full:
+        
+        // Add the new stock at the next available index in the array.
+        Step 2.1: Add newStock at the next available index.
+        
+        // Display a success message after the new stock has been added.
+        Step 2.2: Display "Stock added successfully."
+    
+    // If the array is full, display an error message.
+    Step 3: If array is full:
+        Step 3.1: Display "Error: Array is full."
+    
+    // End the algorithm.
+    Step 4: End
