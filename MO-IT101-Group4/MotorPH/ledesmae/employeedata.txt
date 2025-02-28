@@ -1,0 +1,32 @@
+--------------------------------
+Employee: Carlos Reyes
+Gross Salary: PHP 25200.0
+Deductions:
+  SSS: PHP 1134.0
+  PhilHealth: PHP 756.0
+  Pag-IBIG: PHP 504.0
+  Tax: PHP 2520.0
+Net Salary: PHP 20386.0
+--------------------------------
+
+--------------------------------
+Employee: Ana Mendoza
+Gross Salary: PHP 16800.0
+Deductions:
+  SSS: PHP 756.0
+  PhilHealth: PHP 504.0
+  Pag-IBIG: PHP 336.0
+  Tax: PHP 1680.0
+Net Salary: PHP 13344.0
+--------------------------------
+
+--------------------------------
+Employee: Pedro Gutierrez
+Gross Salary: PHP 23850.0
+Deductions:
+  SSS: PHP 1073.25
+  PhilHealth: PHP 715.50
+  Pag-IBIG: PHP 477.00
+  Tax: PHP 2385.00
+Net Salary: PHP 19200.25
+--------------------------------

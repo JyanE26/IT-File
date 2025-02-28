@@ -1,0 +1,81 @@
+package com.mycompany.motorph;
+
+import java.io.*;
+import java.util.*;
+import org.apache.commons.csv.*;
+
+public class MotorPHPayroll {
+    // Employee class to store employee details
+    static class Employee {
+        private String id;
+        private String name;
+        private double salary;
+        private double hoursWorked;
+
+        public Employee(String id, String name, double salary, double hoursWorked) {
+            this.id = id;
+            this.name = name;
+            this.salary = salary;
+            this.hoursWorked = hoursWorked;
+        }
+
+        public double calculateGrossPay() {
+            return salary * hoursWorked;
+        }
+
+        public double calculateSSS() {
+            return calculateGrossPay() * 0.045;
+        }
+
+        public double calculatePhilHealth() {
+            return calculateGrossPay() * 0.03;
+        }
+
+        public double calculatePagIbig() {
+            return calculateGrossPay() * 0.02;
+        }
+
+        public double calculateTax() {
+            return calculateGrossPay() * 0.10;
+        }
+
+        public double calculateNetPay() {
+            return calculateGrossPay() - (calculateSSS() + calculatePhilHealth() + calculatePagIbig() + calculateTax());
+        }
+
+        @Override
+        public String toString() {
+            return "--------------------------------\n" +
+                   "Employee: " + name + "\n" +
+                   "Gross Salary: PHP " + calculateGrossPay() + "\n" +
+                   "Deductions:\n" +
+                   "  SSS: PHP " + calculateSSS() + "\n" +
+                   "  PhilHealth: PHP " + calculatePhilHealth() + "\n" +
+                   "  Pag-IBIG: PHP " + calculatePagIbig() + "\n" +
+                   "  Tax: PHP " + calculateTax() + "\n" +
+                   "Net Salary: PHP " + calculateNetPay() + "\n" +
+                   "--------------------------------";
+        }
+    }
+
+    public static void main(String[] args) {
+        List<Employee> employees = new ArrayList<>();
+
+        try (Reader reader = new FileReader("employees.csv");
+             CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT.withHeader())) {
+            for (CSVRecord record : csvParser) {
+                String id = record.get("ID");
+                String name = record.get("Name");
+                double salary = Double.parseDouble(record.get("Salary"));
+                double hoursWorked = Double.parseDouble(record.get("HoursWorked"));
+                employees.add(new Employee(id, name, salary, hoursWorked));
+            }
+        } catch (IOException e) {
+            System.out.println("Error reading the CSV file: " + e.getMessage());
+        }
+
+        for (Employee emp : employees) {
+            System.out.println(emp);
+        }
+    }
+}
